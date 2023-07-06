@@ -1,22 +1,35 @@
 import os
 import csv
- 
+import collections
+
 
 election_data = os.path.join("..", "PyPoll", "election_data.csv")
-with open('budget_data.csv') as csvfile:
+with open('election_data.csv') as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
 
 # print title of results
     print('Election Results: ')
     header = next(csvreader)
-# The total number of votes cast
-    rowcount = 1
+#Stored Variables
+    Votes = 1
+    Candidate_list = []
+    Count_1 = collections.Counter()
+  # The total number of votes cast  
     for row in csvreader: 
-        rowcount+= 1
+        Votes+= 1
+        Candidate =(row[2])
+    #A complete list of candidates who received votes
+        if Candidate not in Candidate_list:
+            Candidate_list.append(Candidate)
         
-    print('Total number of votes: ', rowcount)
+        
+        Count_1[Candidate] += 1
 
-#A complete list of candidates who received votes
+        
+    print('Total number of votes: ', Votes)
+    print(Count_1)
+
+
 
 #The percentage of votes each candidate won
 
