@@ -1,7 +1,7 @@
 import os
 import csv 
 
-budget_data = os.path.join('..','budget_data.csv')
+budget_data = os.path.join('..', 'PyBank', 'Resources', 'budget_data.csv')
 with open('budget_data.csv') as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
 
@@ -39,9 +39,7 @@ with open('budget_data.csv') as csvfile:
     print('Greatest increase: ', greatest_increase_month, greatest_increase)
     print('Greatest Decrease: ', greatest_decrease_month, greatest_decrease)
           
-output_file = os.path.join('Results.txt')
-with open(output_file) as textfile:
-    
+output_file = os.path.join(Results.txt)
 
 
 
