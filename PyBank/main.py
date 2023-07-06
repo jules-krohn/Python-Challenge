@@ -9,7 +9,7 @@ with open('budget_data.csv') as csvfile:
     print('Financial Analysis: ')
     header = next(csvreader)
     first_row = next(csvreader)
-# The total number of months included in the dataset
+# variables
     rowcount = 1
     total = int(first_row[1])
     previous = int(first_row[1])
@@ -21,11 +21,15 @@ with open('budget_data.csv') as csvfile:
 
     for row in csvreader: 
         current = int(row[1])
+#The total number of months included in the dataset
         rowcount+= 1
+# The net total amount of "Profit/Losses" over the entire period
         total += current
+#The changes in "Profit/Losses" over the entire period+ average of those changes
         change = current - previous
         total_change += change
         previous = current
+#The greatest increase/decrease in profits (date and amount) over the entire period
         if change > greatest_increase: 
             greatest_increase = change
             greatest_increase_month = row[0]
